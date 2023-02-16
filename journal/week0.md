@@ -23,6 +23,8 @@ The first week of the AWS Cloud Project Bootcamp focused on laying out the found
    
  - Generate AWS Credentials & Install AWS CLI
    AWS CLI was already installed on my machine. On the other hand i set up Gitpod account and updated 'gitpod.yaml' file as suggested on Andrews video.  
+   <img width="524" alt="gitpod setup" src="https://user-images.githubusercontent.com/77783631/219501666-8299d2e8-b92c-4ead-aa29-3c56653d5593.png">
+
  - Create a Billing Alarm & Budget
    Finally, i set up a billing and budget alarm. This was crucial as the project focused on working on a free tier account. 
 ## Final Tought on First week.
