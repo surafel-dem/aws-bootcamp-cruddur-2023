@@ -15,8 +15,13 @@ The first week of the AWS Cloud Project Bootcamp focused on laying out the found
    Additionally the logical architectural diagram was developed using lucid app as shown on the following link:
    https://lucid.app/lucidchart/652e9f2b-bd7c-4d9b-8f6c-ff317ac805ec/edit?viewport_loc=135%2C-98%2C2208%2C878%2C0_0&invitationId=inv_ad0ac788-5796-43df-aa3b-8574c261f6cc
   
-   The recreation of the conceptual diagram was great as it enables me to dig into the different shapes available:
+   The recreation of the logical diagram was great as it enables me to dig into the different shapes available:
    ![Cruddur Logical Diagram - Logical APP ](https://user-images.githubusercontent.com/77783631/219499770-96d4621e-ca37-4ed7-b6ca-2e0b4a6728b1.png)
+   
+   I have also created a logical digram showing the CI/CP Pipeline 
+   https://lucid.app/lucidchart/652e9f2b-bd7c-4d9b-8f6c-ff317ac805ec/edit?viewport_loc=132%2C388%2C1472%2C509%2CSiLx24r0VgN_&invitationId=inv_ad0ac788-5796-43df-aa3b-8574c261f6cc
+   
+   
    
  - Create an Admin User & Use CloudShell	
    The second part of the assignment was creating admin user for the boorcamp. I have created an admin user with the necessary security recommendations such as MFA authentication. 
