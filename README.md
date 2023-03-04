@@ -3,6 +3,19 @@
 - Application: Cruddur
 - Cohort: 2023-A1
 
+
+
+
+export HONEYCOMB_API_KEY="tVV8qEFEeKKCovXfXwUxAD"
+gp env HONEYCOMB_API_KEY="tVV8qEFEeKKCovXfXwUxAD"
+
+HONEYCOMB_SERVICE_NAME=Cruddur
+
+
+
+
+
+
 This is the starting codebase that will be used in the FREE AWS Cloud Project Bootcamp 2023
 
 ![Cruddur Graphic](_docs/assets/cruddur-banner.jpg)
