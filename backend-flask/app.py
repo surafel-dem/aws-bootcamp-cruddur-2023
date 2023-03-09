@@ -35,11 +35,11 @@ from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
 
 
 # ROLLBAR -----------
+
+import os
 import rollbar
 import rollbar.contrib.flask
 from flask import got_request_exception
-
-
 
 
 
