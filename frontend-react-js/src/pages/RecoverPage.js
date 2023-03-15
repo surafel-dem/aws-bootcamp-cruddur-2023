@@ -14,7 +14,7 @@ export default function RecoverPage() {
 
   const onsubmit_send_code = async (event) => {
     event.preventDefault();
-    setCognitoErrors('')
+    setErrors('')
     Auth.forgotPassword(username)
     .then((data) => setFormState('confirm_code') )
     .catch((err) => setErrors(err.message) );
