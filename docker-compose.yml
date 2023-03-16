@@ -13,6 +13,8 @@ services:
       AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
       AWS_XRAY_URL: "*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*"
       AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
+      AWS_COGNITO_USER_POOL_ID: "eu-west-1_al4L6u17W"
+      AWS_COGNITO_USER_POOL_CLIENT_ID: "19p1g6g0iblqt0pmc3aq5ukir5"   
     build: ./backend-flask
     ports:
       - "4567:4567"

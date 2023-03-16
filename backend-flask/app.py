@@ -2,7 +2,7 @@ from flask import Flask
 from flask import request
 from flask_cors import CORS, cross_origin
 import os
-
+from flask_awscognito import AWSCognitoAuthentication
 # ROLLBAR -----------
 import rollbar
 import rollbar.contrib.flask
@@ -58,7 +58,10 @@ from time import strftime
 # xray_url = os.getenv("AWS_XRAY_URL")
 # xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 
+app.config['AWS_COGNITO_USER_POOL_ID'] = os.getenv("AWS_COGNITO_USER_POOL_ID")
+app.config['AWS_COGNITO_USER_POOL_CLIENT_ID'] = os.getenv("AWS_COGNITO_USER_POOL_CLIENT_ID")
 
+aws_auth = AWSCognitoAuthentication(app)
 app = Flask(__name__)
 # Initialize automatic instrumentation with Flask
 # HONEYCOMP -----------
@@ -148,10 +151,11 @@ def data_notifications():
   data = NotificationsActivities.run()
   return data, 200
 
-
+@aws_auth.authentication_required
 @app.route("/api/activities/home", methods=['GET'])
 def data_home():  
   data = HomeActivities.run()
+  claims = aws_auth.claims
   return data, 200
 
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
