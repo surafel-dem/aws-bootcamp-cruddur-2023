@@ -1,4 +1,3 @@
-HTTP_HEADER = "Authorization"
 import time
 import requests
 from jose import jwk, jwt
@@ -10,8 +9,6 @@ class FlaskAWSCognitoError(Exception):
 
 class TokenVerifyError(Exception):
   pass
-
-
 
 class CognitoJwtToken:
     def __init__(self, user_pool_id, user_pool_client_id, region, request_client=None):

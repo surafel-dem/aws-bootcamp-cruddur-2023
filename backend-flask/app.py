@@ -2,8 +2,7 @@ from flask import Flask
 from flask import request
 from flask_cors import CORS, cross_origin
 import os
-from lib.cognito_token_verification import CognitoJwtToken
-
+from lib.cognito_jwt_token import CognitoJwtToken, extract_access_token, TokenVerifyError
 
 # ROLLBAR -----------
 import rollbar
@@ -67,10 +66,11 @@ app.config['AWS_COGNITO_USER_POOL_CLIENT_ID'] = os.getenv("AWS_COGNITO_USER_POOL
 
 app = Flask(__name__)
 
-cognito_token_verification = CognitoJwtToken(
-user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID"), 
-user_pool_client_id=os.getenv("AWS_COGNITO_USER_POOL_CLIENT_ID"), 
-region=os.getenv("AWS_DEFAULT_REGION"))
+cognito_jwt_token = CognitoJwtToken(
+  user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID"), 
+  user_pool_client_id=os.getenv("AWS_COGNITO_USER_POOL_CLIENT_ID"),
+  region=os.getenv("AWS_DEFAULT_REGION")
+)
 
 # Initialize automatic instrumentation with Flask
 # HONEYCOMP -----------
@@ -163,15 +163,18 @@ def data_notifications():
 @aws_auth.authentication_required
 @app.route("/api/activities/home", methods=['GET'])
 def data_home():
-   access_token = CognitoJwtToken.extract_access_token(request.headers)
-            try:
-                claims = cognito_token_verification.token_service.verify(access_token)
-            except TokenVerifyError as e:
-                _ = request.data
-                abort(make_response(jsonify(message=str(e)), 401))  
-  
-  data = HomeActivities.run()
-  claims = aws_auth.claims
+   access_token = extract_access_token(request.headers)
+             claims = cognito_jwt_token.verify(access_token)
+    # authenicatied request
+    app.logger.debug("authenicated")
+    app.logger.debug(claims)
+    app.logger.debug(claims['username'])
+    data = HomeActivities.run(cognito_user_id=claims['username'])
+  except TokenVerifyError as e:
+    # unauthenicatied request
+    app.logger.debug(e)
+    app.logger.debug("unauthenicated")
+    data = HomeActivities.run()
   return data, 200
 
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
