@@ -162,7 +162,14 @@ def data_notifications():
 
 @aws_auth.authentication_required
 @app.route("/api/activities/home", methods=['GET'])
-def data_home():  
+def data_home():
+   access_token = CognitoJwtToken.extract_access_token(request.headers)
+            try:
+                claims = cognito_token_verification.token_service.verify(access_token)
+            except TokenVerifyError as e:
+                _ = request.data
+                abort(make_response(jsonify(message=str(e)), 401))  
+  
   data = HomeActivities.run()
   claims = aws_auth.claims
   return data, 200
