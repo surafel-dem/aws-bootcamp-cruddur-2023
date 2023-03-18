@@ -152,7 +152,6 @@ def data_notifications():
   data = NotificationsActivities.run()
   return data, 200
 
-@aws_auth.authentication_required
 @app.route("/api/activities/home", methods=['GET'])
 def data_home():
   access_token = extract_access_token(request.headers)
