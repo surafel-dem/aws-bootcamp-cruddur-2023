@@ -59,11 +59,6 @@ from time import strftime
 # xray_url = os.getenv("AWS_XRAY_URL")
 # xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 
-app.config['AWS_COGNITO_USER_POOL_ID'] = os.getenv("AWS_COGNITO_USER_POOL_ID")
-app.config['AWS_COGNITO_USER_POOL_CLIENT_ID'] = os.getenv("AWS_COGNITO_USER_POOL_CLIENT_ID")
-
-
-
 app = Flask(__name__)
 
 cognito_jwt_token = CognitoJwtToken(
@@ -78,9 +73,6 @@ FlaskInstrumentor().instrument_app(app)
 RequestsInstrumentor().instrument()
 # X-RAY ---------
 # XRayMiddleware(app, xray_recorder)
-
-
-
 
 
 frontend = os.getenv('FRONTEND_URL')
