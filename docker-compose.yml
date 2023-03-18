@@ -15,6 +15,7 @@ services:
       AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
       AWS_COGNITO_USER_POOL_ID: "eu-west-1_al4L6u17W"
       AWS_COGNITO_USER_POOL_CLIENT_ID: "42a2d0qalqmfqv2rkk5612r2ci"   
+ 
     build: ./backend-flask
     ports:
       - "4567:4567"
@@ -27,6 +28,7 @@ services:
       REACT_APP_AWS_COGNITO_REGION: "eu-west-1"
       REACT_APP_AWS_USER_POOLS_ID: "eu-west-1_al4L6u17W"
       REACT_APP_CLIENT_ID: "42a2d0qalqmfqv2rkk5612r2ci" 
+      
     build: ./frontend-react-js
     ports:
       - "3000:3000"
