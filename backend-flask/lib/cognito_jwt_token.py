@@ -10,6 +10,13 @@ class FlaskAWSCognitoError(Exception):
 class TokenVerifyError(Exception):
   pass
 
+def extract_access_token(request_headers):
+    access_token = None
+    auth_header = request_headers.get("Authorization")
+    if auth_header and " " in auth_header:
+        _, access_token = auth_header.split()
+    return access_token
+
 class CognitoJwtToken:
     def __init__(self, user_pool_id, user_pool_client_id, region, request_client=None):
         self.region = region
@@ -32,13 +39,6 @@ class CognitoJwtToken:
             self.jwk_keys = response.json()["keys"]
         except requests.exceptions.RequestException as e:
             raise FlaskAWSCognitoError(str(e)) from e
-    @classmethod
-    def extract_access_token(request_headers):
-    access_token = None
-    auth_header = request_headers.get("Authorization")
-    if auth_header and " " in auth_header:
-        _, access_token = auth_header.split()
-    return access_token
 
     @staticmethod
     def _extract_headers(token):
