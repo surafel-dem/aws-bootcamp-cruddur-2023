@@ -1,10 +1,9 @@
 from psycopg_pool import ConnectionPool
 import os
-import re
 import sys
 from flask import current_app as app
 
-class Db:
+class db:
   def __init__(self):
     self.init_pool()
 
