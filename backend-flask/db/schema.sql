@@ -13,13 +13,13 @@ CREATE TABLE public.users (
 );
 
 CREATE TABLE public.activities (
-  uuid UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-  user_uuid UUID,
-  message text,
-  replies_count integer DEFAULT 0,
-  reposts_count integer DEFAULT 0,
-  likes_count integer DEFAULT 0,
+  uuid UUID default uuid_generate_v4() primary key,
+  user_uuid UUID REFERENCES public.users(uuid) NOT NULL,
+  message text NOT NULL,
+  replies_count integer default 0,
+  reposts_count integer default 0,
+  likes_count integer default 0,
   reply_to_activity_uuid integer,
-  expires_at TIMESTAMP,
-  created_at TIMESTAMP default current_timestamp
+  expires_at timestamp,
+  created_at timestamp default current_timestamp NOT NULL
 );
