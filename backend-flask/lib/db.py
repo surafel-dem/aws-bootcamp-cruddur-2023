@@ -57,16 +57,15 @@ class Db:
  
   # When we want to return an array of json objects
   def query_object_json(self,sql):
-     print('SQL STATEMENT-[object]----')
-     print(sql + "\n")
-
+    print('SQL STATEMENT-[object]----')
+    print(sql + "\n")
     wrapped_sql = self.query_wrap_object(sql)
 
     with self.pool.connection() as conn:
       with conn.cursor() as cur:
         cur.execute(wrapped_sql,params)
         json = cur.fetchone()
-          return json[0]
+        return json[0]
 
   def query_wrap_object(self,template):
     sql = f"""
