@@ -1,6 +1,7 @@
+import uuid
 from datetime import datetime, timedelta, timezone
 
-from lib.db import query_commit, print_sql_err
+#from lib.db import db
 
 class CreateActivity:
   def run(message, user_handle, ttl):
@@ -42,19 +43,29 @@ class CreateActivity:
         'message': message
       }   
     else:
-      expires_at = (now + ttl_offset)
-      uuid = CreateActivity.create_activity(user_handle,message,expires_at)
-
-      object_json = CreateActivity.query_object_activity(uuid)
-      model['data'] = object_json
+      self.create_activity()
+      model['data'] = {
+        'uuid': uuid.uuid4(),
+        'display_name': 'Surafel',
+        'handle': user_handle,
+        'message': message,
+        'created_at': now.isoformat(),
+        'expires_at': (now + ttl_offset).isoformat()
+      }
     return model
 
-  def create_activity(handle, message, expires_at):
-    sql = db.template('create_activity')
-    uuid = db.query_commit(sql,{
-      'handle': handle,
-      'message': message,
-      'expires_at': expires_at
-    })
-    query_commit(sql)
+  def create_activity(user_uuid, message, expires_at):
+    sql = f"""
+    INSERT INTO (
+      user_uuid,
+      message,
+      expire_at
+    )
+    VALUES(
+      "{user_uuid}",
+      "{message}",
+      "{expire_at}"
+    )
+    """
+    #query_commit(sql)
 
