@@ -44,7 +44,8 @@ class Db:
     except Exception as err:
       self.print_sql_err(err)
   # when we want to return a json object
-   def query_array_json(self,sql):
+  # when we want to return a json object
+  def query_array_json(self,sql):
     print('SQL STATEMENT-[array]----')
     print(sql + "\n")
     wrapped_sql = self.query_wrap_array(sql)
