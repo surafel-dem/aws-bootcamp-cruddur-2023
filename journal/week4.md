@@ -17,4 +17,4 @@ So i better stop saying this week was more difficult than this :laughing: or tha
  
   <img width="692" alt="db" src="https://user-images.githubusercontent.com/77783631/230791259-c25722f5-e8fa-4f12-9c0b-f2ba4247d11b.png">
   
-  # Bring on the next tasks.... 	:smiley:
+  # Bring on the next tasks.... 		:worried:
