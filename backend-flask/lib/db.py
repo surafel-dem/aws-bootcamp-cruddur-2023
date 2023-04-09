@@ -10,24 +10,29 @@ class Db:
 
   def template(self,name):
     template_path = os.path.join(app.root_path,'db','sql',name+'.sql')
-   
-    green = '\033[92m'
-    no_color = '\033[0m'
-    print("\n")
-    print(f'{green} Load SQL Template: {template_path} {no_color}')
-
     with open(template_path, 'r') as f:
       template_content = f.read()
-    return template_content
+      return template_content
+
+   
+  #  green = '\033[92m'
+  # no_color = '\033[0m'
+  #  print("\n")
+  # print(f'{green} Load SQL Template: {template_path} {no_color}')
 
   def init_pool(self):
     connection_url = os.getenv("CONNECTION_URL")
     self.pool = ConnectionPool(connection_url)
   # we want to commit data such as an insert
   # be sure to check for RETURNING in all uppercases
+  def print_sql(self,title,sql):
+    green = '\033[92m'
+    no_color = '\033[0m'
+    print(f'{green} SQL STatements: {title} {no_color}')
+    print("\n")
   def query_commit(self,sql,params):
-    print('SQL STATEMENT-[commit with returning]----')
-    print(sql + "\n")
+    self.print_sql('commit with returning',sql)
+    #print(sql + "\n")
 
     pattern = r"\bRETURNING\b"
     is_returning_id = re.search(pattern, sql)
@@ -38,7 +43,7 @@ class Db:
         cur.execute(sql,params)
         if is_returning_id:
           returning_id = cur.fetchone()[0]
-        conn.commit() 
+          conn.commit() 
         if is_returning_id:
           return returning_id
     except Exception as err:
