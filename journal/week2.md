@@ -16,16 +16,16 @@ The main objectives & tasks of week 2 includes:
 
 
 - Instrument AWS X-Ray – this task allows me to explore X-Ray  I was ably to instrument using X-Ray. The subsegment part of the task was a bit challenging but after some challenges i was ably to finish the tasks. The following images shows the log and traces on X-RAY:
-- <img width="692" alt="db" src="[https://user-images.githubusercontent.com/77783631/221369103-2d6896d3-f917-4e65-8821-8558da334c22.png](https://user-images.githubusercontent.com/77783631/230789917-54535815-6e86-4f5d-81c1-c0c927a6ea32.png)">
-
-<img width="692" alt="db" src="[[https://user-images.githubusercontent.com/77783631/221369103-2d6896d3-f917-4e65-8821-8558da334c22.png](https://user-images.githubusercontent.com/77783631/230789965-bb1922a0-ae6e-48f4-a120-bd9e3165d22c.png)](https://github.com/surafel-dem/aws-bootcamp-cruddur-2023/issues/3#issuecomment-1501186126)">
-
-
+-
+ <img width="692" alt="db" src="https://user-images.githubusercontent.com/77783631/230789953-bdaf1b47-e546-44d2-b375-83535dec9821.png">
+ <img width="692" alt="db" src="https://user-images.githubusercontent.com/77783631/230789965-bb1922a0-ae6e-48f4-a120-bd9e3165d22c.png">
+ 
+ 
  - Finally i have implemented Rollbar and cloudwatch logs for error logging. 
  
- <img width="692" alt="db" src="https://user-images.githubusercontent.com/77783631/221369103-2d6896d3-f917-4e65-8821-8558da334c22.png">
+ <img width="692" alt="db" src="https://user-images.githubusercontent.com/77783631/230789980-e337f3fd-b628-4f5d-a879-bf1eed7b9e17.png">
  
- <img width="692" alt="db" src="https://user-images.githubusercontent.com/77783631/221369103-2d6896d3-f917-4e65-8821-8558da334c22.png">
+ <img width="692" alt="db" src="https://user-images.githubusercontent.com/77783631/230789988-012f9a5b-5d4c-4dc0-ad3b-85252efd4a6e.png">
 
 ## Final Tought on First week.
 This week was a bit challenging interms on understanding the process of instrumentation. It's great to learn about logging and instrumentation that will help me to manage the cloud infrustructure. 
