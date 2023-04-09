@@ -9,7 +9,7 @@ The main objectives & tasks of week 3 includes:
 - Finally, create new activities with a database insert
 
 # Week 4 — Homework and Challenges
-So i better stop saying this week was more difficult than this :) or that. I think it's down to dadicatin and hard work from Andrew that was keeping me on the bootcamp. The atabase section it's own challenges as we needed to integrate a library. I was able to setup and connect with RDS database as shown below:
+So i better stop saying this week was more difficult than this :laughing: or that. I think it's down to dadicatin and hard work from Andrew that was keeping me on the bootcamp. The atabase section it's own challenges as we needed to integrate a library. I was able to setup and connect with RDS database as shown below:
 
  <img width="692" alt="db" src="https://user-images.githubusercontent.com/77783631/230791684-b7950cc6-e2e2-4d22-9cf4-75191b5e6f21.png">
  
