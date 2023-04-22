@@ -1,0 +1,15 @@
+AWSTemplateFormation: 2010-09-09
+Description: 
+  Setup ECS Cluster
+Resources: 
+  ECSCluster: #LogocalName
+    Type: 'AWS::ECS::Cluster'
+    Properties: 
+      ClusterName: MyCluster
+      
+#parameter:
+#Mappings:
+#Outputs:
+#Outputs:
+  
+
